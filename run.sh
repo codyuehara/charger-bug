@@ -17,7 +17,7 @@ do
     esac
 done
 
-   # xhost +local:docker
+    xhost +local:docker
                #--gpus=all \
                #-v $PWD/.session.yml:/root/.session.yml \
                #-v $PWD/.tmux.conf:/root/.tmux.conf \
