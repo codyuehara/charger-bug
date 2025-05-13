@@ -1,6 +1,7 @@
 #!/bin/bash
 
-IMAGE_NAME=ros2-humble
+IMAGE_NAME=charger
+ARCH=$(uname -m)
 
 help()
 {
@@ -12,17 +13,17 @@ help()
     exit 1
 }
 
-while getopts "h:j" opt
+while getopts "h" opt
 do 
     case "$opt" in 
-	j) jetson=1 ;;
 	h | ?) help ;;
     esac
 done
 
-if [ -n "$jetson" ]; then
+if [ $ARCH="x86_64" ]; then
+    echo "building on Host"
+    docker build -f Dockerfile.dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
+elif [ $ARCH="aarch64" ]; then
     echo "building Jetson"
     docker build -f Dockerfile.jetson --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
-else
-    docker build -f Dockerfile.dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
 fi 

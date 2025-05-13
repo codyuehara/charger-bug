@@ -1,6 +1,6 @@
 #!/bin/bash
 
-IMAGE_NAME=ros2-humble
+IMAGE_NAME=charger
 
 help()
 {
@@ -17,19 +17,19 @@ do
     esac
 done
 
-    xhost +local:docker
-               #--gpus=all \
-               #-v $PWD/.session.yml:/root/.session.yml \
-               #-v $PWD/.tmux.conf:/root/.tmux.conf \
-    docker run -it \
-               --rm \
-               --net=host \
-               --privileged \
-               -e DISPLAY=$DISPLAY \
-               -e PYTHONBUFFERED=1 \
-               -v /etc/timezone:/etc/timezone:ro \
-               -v /etc/localtime:/etc/localtime:ro \
-               -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
-               -v $HOME/.Xauthority:/root/.Xauthority:ro \
-               --device=/dev/bus/usb:/dev/bus/usb \
-               $IMAGE_NAME
+xhost +local:docker
+       #--gpus=all \
+       #-v $PWD/.session.yml:/root/.session.yml \
+       #-v $PWD/.tmux.conf:/root/.tmux.conf \
+docker run -it \
+       --rm \
+       --net=host \
+       --privileged \
+       -e DISPLAY=$DISPLAY \
+       -e PYTHONBUFFERED=1 \
+       -v /etc/timezone:/etc/timezone:ro \
+       -v /etc/localtime:/etc/localtime:ro \
+       -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+       -v $HOME/.Xauthority:/root/.Xauthority:ro \
+       --device=/dev/bus/usb:/dev/bus/usb \
+       $IMAGE_NAME
