@@ -3,6 +3,8 @@ FROM osrf/ros:humble-desktop-full
 ARG WORKSPACE=humble_dev_ws
 WORKDIR /root/$WORKSPACE
 
+RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
+
 #ENV NVIDIA_VISIBLE_DEVICES \
 #    ${NVIDIA_VISIBLE_DEVICES:-all}
 #ENV NVIDIA_DRIVER_CAPABILITIES \

@@ -22,8 +22,8 @@ done
 
 if [ $ARCH="x86_64" ]; then
     echo "building on Host"
-    docker build -f Dockerfile.dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
+    docker build -f docker/Dockerfile.host-dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
 elif [ $ARCH="aarch64" ]; then
     echo "building Jetson"
-    docker build -f Dockerfile.jetson --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
+    docker build -f docker/Dockerfile.jetson-dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
 fi 

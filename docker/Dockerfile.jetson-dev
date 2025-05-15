@@ -1,0 +1,5 @@
+FROM codyuehara/jetson-build
+
+COPY ./src /root/src
+
+RUN colcon build
