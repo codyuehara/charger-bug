@@ -21,6 +21,7 @@ xhost +local:docker
        #--gpus=all \
        #-v $PWD/.session.yml:/root/.session.yml \
        #-v $PWD/.tmux.conf:/root/.tmux.conf \
+       #-v /home/buggy/charger-bug/vesc:/root/src/vesc \
 docker run -it \
        --rm \
        --net=host \

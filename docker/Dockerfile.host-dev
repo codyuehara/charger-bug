@@ -1,5 +1,5 @@
 FROM codyuehara/host-build
 
-COPY ./src /root/src
+#COPY ./src /root/src
 
-RUN colcon build
+#RUN colcon build

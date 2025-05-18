@@ -1,1 +1,1 @@
-docker build -f docker/Dockerfile.host-dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
+docker build -f Dockerfile.host-build --build-arg WORKSPACE=$workspace -t codyuehara/host-build .
