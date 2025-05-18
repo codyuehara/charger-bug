@@ -20,10 +20,10 @@ do
     esac
 done
 
-if [ $ARCH="x86_64" ]; then
-    echo "building on Host"
-    docker build -f docker/Dockerfile.host-dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
-elif [ $ARCH="aarch64" ]; then
+if [ $ARCH="aarch64" ]; then 
     echo "building Jetson"
     docker build -f docker/Dockerfile.jetson-dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
+elif [ $ARCH="x86_64" ]; then
+    echo "building on Host"
+    docker build -f docker/Dockerfile.host-dev --build-arg WORKSPACE=$workspace -t $IMAGE_NAME .
 fi 
